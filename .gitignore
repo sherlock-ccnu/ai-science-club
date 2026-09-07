@@ -1,0 +1,11 @@
+node_modules/
+dist/
+qa/
+design-qa.md
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+.npmrc
