@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f3e9">
+<title>一河之隔 · 农夫过河</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23255343'/%3E%3Cpath d='M7 22h26l-7 9H14z' fill='%23eed496'/%3E%3Cpath d='M20 8v14' stroke='%23eed496' stroke-width='3'/%3E%3C/svg%3E">
+<style>
+:root{--paper:#f5f3e9;--ink:#243f35;--muted:#6b7b70;--green:#265b46;--line:#dce1d4;--gold:#e5bb61;--card:#fffef8}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 "Microsoft YaHei","PingFang SC",sans-serif}button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible,summary:focus-visible{outline:3px solid #bc8135;outline-offset:4px}button:disabled{cursor:not-allowed}button{ -webkit-tap-highlight-color:transparent}main{max-width:1280px;margin:auto;padding:24px 36px 20px}header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px}.brand{display:flex;align-items:center;gap:12px}.brandmark{width:42px;height:42px;background:var(--green);border-radius:14px;display:grid;place-items:center;color:#f5deb0}.brand small{display:block;font-size:10px;letter-spacing:2px;color:var(--muted)}.brand b{font-size:15px;letter-spacing:1px}.tools{display:flex;gap:8px}.quiet{border:1px solid var(--line);background:transparent;border-radius:10px;padding:8px 15px}.quiet:hover{background:#e9eddf}.title-row{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px}h1{font-family:Georgia,"STKaiti","KaiTi",serif;font-size:42px;letter-spacing:3px;line-height:1.2;margin:0 0 8px}h1 span{font:12px "Microsoft YaHei",sans-serif;letter-spacing:1px;vertical-align:middle;margin-left:10px;border:1px solid #cbd6c3;border-radius:20px;padding:5px 10px;color:#56705d}.subtitle{margin:0;color:var(--muted);font-size:13px}.stats{display:flex;gap:24px;padding-left:20px}.stat{min-width:54px}.stat label{display:block;font-size:11px;color:var(--muted)}.stat strong{font:32px/1.3 Georgia,serif}.stat small{font-size:12px;color:var(--muted);margin-left:4px}.stat+.stat{border-left:1px solid var(--line);padding-left:24px}.game{border:1px solid #cfdbce;border-radius:24px;overflow:hidden;background:#eaf2df;box-shadow:0 10px 30px #2e4a3010}.scene-top{padding:13px 22px;background:#ffffff82;display:flex;justify-content:space-between;gap:10px;font-size:12px}.live{display:flex;align-items:center;gap:8px}.dot{width:7px;height:7px;border-radius:50%;background:#4c815a}.bank-progress{color:#6a7a65}.scene-wrap{position:relative}.scene{display:block;width:100%;height:auto;max-height:450px;background:#eaf2df}.scene text{font-family:"Microsoft YaHei",sans-serif}.entity{cursor:pointer;outline:none}.entity .selected-ring{opacity:0;transition:opacity .2s}.entity.chosen .selected-ring,.entity:focus-visible .selected-ring{opacity:1}.entity:hover .sprite{filter:brightness(1.06)}.entity.unavailable{cursor:default}.entity-label{fill:#344c39;font-size:13px;font-weight:700}.entity-tag{fill:#7a8d70;font-size:10px}.waterline{animation:drift 6s ease-in-out infinite alternate}.waterline:nth-child(2n){animation-delay:-3s}@keyframes drift{to{transform:translateX(12px)}}.boat-position{transition:transform 1.05s cubic-bezier(.45,0,.25,1)}.boat-bob{animation:bob 2.8s ease-in-out infinite}@keyframes bob{50%{transform:translateY(3px)}}.status{min-height:64px;background:#fffdf2;border-top:1px solid #dbe0cd;padding:14px 22px;display:flex;align-items:center;gap:12px}.status-icon{display:grid;place-items:center;flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#edf0df;color:#54734e;font-weight:bold}.status strong{font-size:14px;display:block}.status p{margin:0;color:var(--muted);font-size:12px}.status[data-kind=lost]{background:#fff0e7}.status[data-kind=lost] .status-icon{background:#f3d5c5;color:#a24a2d}.status[data-kind=won]{background:#fff0be}.status[data-kind=won] .status-icon{background:#e5bc5f;color:#60490b}.control-panel{display:grid;grid-template-columns:1fr 255px;gap:24px;padding:22px 0}.control-heading{font-size:12px;font-weight:bold;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:8px}.control-heading span{font-size:11px;font-weight:normal;color:var(--muted)}.choices{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.choice{display:flex;align-items:center;gap:8px;text-align:left;position:relative;min-height:74px;border:1px solid var(--line);border-radius:13px;background:var(--card);padding:8px 10px;transition:background .15s,border-color .15s}.choice svg{width:43px;height:48px;flex-shrink:0}.choice b{font-size:13px;display:block}.choice small{display:block;font-size:10px;color:var(--muted)}.choice[aria-pressed=true]{background:#e5eddc;border:2px solid #678c56;padding:7px 9px}.choice[aria-pressed=true]:after{content:'✓';position:absolute;right:7px;top:3px;font-size:11px;color:#4d7443}.choice:disabled{opacity:.38}.choice:not(:disabled):hover{border-color:#668458}.departure{display:flex;flex-direction:column;justify-content:flex-end;gap:8px}.cross{border:0;border-radius:13px;background:var(--green);color:#fffdf2;font-weight:bold;font-size:16px;min-height:52px;box-shadow:0 4px 0 #183c2d;display:flex;align-items:center;justify-content:center;gap:16px}.cross:hover:not(:disabled){background:#327151}.cross:disabled{background:#96a695;box-shadow:0 4px 0 #83927e}.secondary-actions{display:flex;gap:7px}.secondary-actions button{flex:1;font-size:12px;padding:7px 6px}.secondary-actions button:disabled{opacity:.4}.bottom{display:grid;grid-template-columns:1fr 1fr;gap:30px;border-top:1px solid var(--line);padding-top:16px}.section-title{font-size:12px;margin:0 0 8px;display:flex;align-items:center;gap:8px}.section-title span{font-size:10px;color:var(--muted);font-weight:normal}.rules{display:flex;gap:16px}.rule{font-size:11px;line-height:1.8;color:var(--muted)}.rule b{color:var(--ink)}.log{list-style:none;padding:0;margin:0;display:flex;gap:6px;flex-wrap:wrap;max-height:78px;overflow:auto}.log li{background:#e9ecdf;border-radius:6px;padding:4px 8px;font-size:11px}.log li.bad{background:#f1ded0}.log .empty{background:none;padding-left:0;color:var(--muted)}footer{font-size:10px;color:#86917f;margin-top:18px;display:flex;justify-content:space-between;gap:15px}dialog{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:22px;padding:28px;max-width:510px;width:calc(100% - 32px);box-shadow:0 20px 100px #122a3340}dialog::backdrop{background:#1d3e3466;backdrop-filter:blur(4px)}dialog h2{margin:0 0 16px;font-size:24px}dialog p,dialog li{font-size:14px;color:#60715f}dialog li{margin:8px 0}dialog .close{margin-top:15px;width:100%}.hint-box{border-left:3px solid var(--gold);background:#f4f1e1;padding:14px;border-radius:0 8px 8px 0}.hint-box strong{color:var(--green)}.legend{color:#69806a;font-size:11px}.shortcut{border:1px solid #d5dece;border-bottom-width:2px;border-radius:4px;padding:0 4px;font-size:10px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}body:fullscreen{overflow:auto;background:var(--paper)}
+@media(min-width:1500px){main{padding-top:36px}.scene{max-height:500px}}
+@media(max-width:900px){main{padding:18px}.control-panel{grid-template-columns:1fr 210px;gap:16px}.choice{padding:8px 5px;gap:3px}.choice[aria-pressed=true]{padding:7px 4px}.choice svg{width:34px}.choice b{font-size:12px}.choice small{font-size:9px}h1{font-size:34px}.stats{gap:15px}.stat+.stat{padding-left:15px}.bottom{gap:18px}}
+@media(max-width:650px){main{padding:14px 12px}header{margin-bottom:18px}.brand small{font-size:8px}.brand b{font-size:12px}.brandmark{width:34px;height:34px}.tools{gap:5px}.tools .quiet{font-size:11px;padding:7px 10px}.title-row{align-items:flex-start;margin-bottom:16px}h1{font-size:31px;letter-spacing:1px}h1 span{display:none}.subtitle{font-size:11px;max-width:235px}.stats{gap:10px;padding:0}.stat{min-width:32px}.stat strong{font-size:26px}.stat+.stat{padding-left:10px}.stat label{font-size:9px}.stat small{display:none}.game{border-radius:17px}.scene-top{padding:10px 12px;font-size:10px}.scene{height:285px;max-height:none}.status{padding:12px;align-items:flex-start;min-height:80px}.status strong{font-size:12px}.status p{font-size:11px}.control-panel{grid-template-columns:1fr;gap:14px;padding:17px 0}.choices{gap:6px}.choice{min-height:72px;display:flex;flex-direction:column;gap:0;padding:5px 3px;text-align:center}.choice[aria-pressed=true]{padding:4px 2px}.choice svg{height:35px;width:36px}.choice small{font-size:9px}.departure{display:grid;grid-template-columns:1fr 1fr;gap:9px}.secondary-actions .quiet{padding:6px 3px;font-size:11px}.cross{min-height:48px;font-size:14px}.bottom{grid-template-columns:1fr;gap:15px}.rules{gap:14px}.rule{flex:1;font-size:10px}footer{font-size:9px;flex-wrap:wrap;gap:3px}.control-heading span{font-size:10px}.bank-progress{font-size:10px}}
+@media(min-width:651px) and (max-height:850px){main{padding-top:14px}header{margin-bottom:12px}.title-row{margin-bottom:12px}h1{font-size:34px}.scene{height:auto;max-height:310px}.scene-top{padding:9px 20px}.status{min-height:60px;padding:10px 20px}.control-panel{padding:14px 0}.choice{min-height:66px}.bottom{padding-top:12px}}
+@media(max-width:650px){.tools{flex-shrink:0}.tools .quiet{white-space:nowrap;font-size:10px;padding:7px 8px}.brand{gap:7px}.brand small{font-size:7px;letter-spacing:1px}.brand b{font-size:11px}.scene{height:auto;min-height:0}}
+.entity{touch-action:none;cursor:grab;user-select:none}.entity:active{cursor:grabbing}.entity.unavailable{cursor:not-allowed}.entity.at-risk .selected-ring{opacity:1;fill:#f3b69a88;stroke:#b75e40;stroke-dasharray:none}.dragging .entity{cursor:grabbing}.drop-target{fill:#fffbe913;stroke:#c6cf99;stroke-width:2;stroke-dasharray:6 4;opacity:0;pointer-events:none}.dragging .drop-target{opacity:1}.drop-target.drop-valid{fill:#e9f8cb80;stroke:#4f804a;stroke-width:3}.drop-target.drop-invalid{fill:#f6cab080;stroke:#bd694b;stroke-width:3}.bank-drop{fill:#f4f3c755;stroke:#96a873;stroke-width:3;stroke-dasharray:8 5;opacity:0;pointer-events:none}.bank-drop.active{opacity:1}.seat{fill:#faf7d582;stroke:#8da483;stroke-width:1.5;stroke-dasharray:4 3}.seat-text{font-size:11px;fill:#5e7657;text-anchor:middle;pointer-events:none}.boat-passenger{cursor:grab;touch-action:none;outline:none}.boat-passenger:focus-visible rect{stroke:#b57930;stroke-width:3}.boat-passenger rect{fill:transparent;stroke:transparent}.boat-cross{width:100%;height:36px;line-height:1;border:1px solid #f5edc3;background:#285b47;color:#fffbe5;border-radius:18px;font-size:13px;font-weight:bold;box-shadow:0 2px 3px #21493225;white-space:nowrap}.boat-cross:hover:not(:disabled){background:#387553}.boat-cross:disabled{background:#e0e6d3;color:#65765d;border-color:#adbfa4;cursor:not-allowed}.boat-cross[data-busy=true]{background:#638974;color:white}.board-info{font-size:11px;line-height:1.6;color:#637c61}.board-info b{color:#375940}.control-heading{flex-wrap:wrap}.interaction-hint{font-size:10px;fill:#526f52;text-anchor:middle}.log-title-row{display:flex;justify-content:space-between;align-items:center;gap:10px}.export{border:0;background:none;padding:0 0 7px;text-decoration:underline;text-underline-offset:3px;color:#627757;font-size:11px}.export:disabled{opacity:.4}.scene{user-select:none;touch-action:none}.drag-ghost{opacity:.9;filter:drop-shadow(0 8px 5px #2b523a33);pointer-events:none}.hint-reveal{margin-top:14px;width:100%}.rules .rule{flex:1}
+@media(max-width:650px){.control-heading span{font-size:9px}.board-info{font-size:10px}.scene{min-height:0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+/* 操作反馈围绕角色和小船，背景保持安静。 */
+[hidden]{display:none!important}.game-header{align-items:flex-end;margin-bottom:18px}.game-header h1{font-size:44px;letter-spacing:6px;margin:0 0 6px}.eyebrow{font-size:9px;letter-spacing:2.3px;color:#728269;margin:0 0 7px}.header-right{display:flex;align-items:flex-end;gap:24px}.header-right .tools{order:2;align-self:flex-start}.header-right .stats{padding:0}.boat-position{transition:none}.boat-bob,.waterline{animation:none}.entity .sprite{transition:transform .16s,filter .16s}.entity:not(.unavailable):hover .sprite,.entity:focus-visible .sprite{transform:translateY(-5px);filter:drop-shadow(0 5px 2px #52684733)}.hover-label{opacity:0;transition:opacity .15s;pointer-events:none;font-size:11px;fill:#31573e;font-weight:600}.entity:not(.unavailable):hover .hover-label,.entity:focus-visible .hover-label{opacity:1}.entity.lifted,.boat-passenger.lifted{opacity:.13!important}.dragging .entity:hover .sprite{transform:none}.motion-hidden{opacity:0!important}.drag-ghost{opacity:1;filter:drop-shadow(0 9px 5px #183b3840)}#motion-layer{filter:drop-shadow(0 3px 3px #34513625)}#seat-preview{opacity:0}#seat-preview.visible{opacity:1}#seat-preview use{opacity:.3}#seat-preview rect{fill:#e4f1ad99;stroke:#668a4b;stroke-width:2.5;stroke-dasharray:4 3}.boat-passenger use{pointer-events:none}#wake{opacity:0;fill:none;stroke:#e4f4d5;stroke-width:3;stroke-linecap:round}.sailing #wake{opacity:.8;animation:foam .45s ease-in-out infinite alternate}.sailing #oar{transform-box:view-box;transform-origin:-28px 2px;animation:rowing .55s ease-in-out infinite alternate}.sailing .boat-bob{animation:boat-travel .65s ease-in-out infinite}.fast.sailing #oar{animation-duration:.3s}@keyframes rowing{from{transform:rotate(-12deg)}to{transform:rotate(18deg)}}@keyframes boat-travel{50%{transform:translateY(-1.5px)}}@keyframes foam{to{opacity:.3}}.status{flex-wrap:wrap}.status>div{flex:1;min-width:180px}#status-undo{background:#a65135;border-color:#a65135;color:#fff6ec;font-weight:600;white-space:nowrap}#near-note{position:absolute;z-index:5;max-width:210px;transform:translate(-50%,-100%);padding:7px 12px;border-radius:10px;background:#784d36;color:#fff8e9;font-size:12px;line-height:1.5;box-shadow:0 4px 14px #1f3b3322;pointer-events:none}#near-note.success{background:#365d43}#near-note:after{content:'';position:absolute;bottom:-5px;left:calc(50% - 5px);border:5px solid transparent;border-top-color:#784d36;border-bottom:0}#near-note.success:after{border-top-color:#365d43}.risk-bank{fill:#d6794720;stroke:#b96f4b;stroke-width:2;stroke-dasharray:7 5}.risk-relation{stroke:#b14e30;stroke-width:3;fill:none;stroke-dasharray:7 4}.risk-caption{fill:#8e3e24;font-size:13px;font-weight:bold}.risk-ring{stroke:#bb603c;stroke-width:3;fill:#ffd39e30}.risk-present{animation:risk-appear .3s ease-out}@keyframes risk-appear{from{opacity:0}to{opacity:1}}.result{padding:22px;background:#fbefc7;border-top:1px solid #e4d4a2;display:flex;gap:18px;align-items:center;position:relative}.result-seal{width:60px;height:60px;flex-shrink:0;border:1px solid #ba9745;border-radius:50%;display:grid;place-items:center;background:#e8cc80;color:#496144;font:32px Georgia}.result-body{flex:1}.result h2{font-size:25px;margin:0 0 5px;line-height:1.4}.result p{margin:3px 0;font-size:13px;color:#746744}.result p.eyebrow{font-size:9px;margin-bottom:5px}.result-actions{display:grid;gap:8px;min-width:140px}.result-actions .cross{min-height:43px;font-size:14px}.achievements{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0}.achievement{border:1px solid #c9b671;border-radius:20px;background:#fff9e5;padding:3px 10px;font-size:11px;color:#66572e}.achievement.independent{background:#e3eccf;border-color:#a6ba82;color:#3c613f}.result p.score-note{font-size:11px}.result-title:focus{outline:0}#confetti{position:absolute;inset:0;overflow:hidden;pointer-events:none}#confetti i{position:absolute;left:50%;top:25%;height:9px;width:5px;background:#b48a3d;animation:celebrate 1.1s ease-out forwards;animation-delay:var(--delay)}@keyframes celebrate{0%{transform:translate(0,0) rotate(0);opacity:0}12%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--rot));opacity:0}}#replay-dialog{max-width:570px}#replay-map{display:block;width:100%;background:#edf0d8;border:1px solid #d7dfc9;border-radius:15px;margin:12px 0}#replay-slider{width:100%;accent-color:#3c6e50;min-height:30px}.replay-controls{display:flex;gap:8px;justify-content:space-between}.replay-controls button{flex:1}.fast-button-active,#speed[aria-pressed=true]{background:#e0e8d2;border-color:#8ba379}footer{margin-top:13px}
+@media(min-width:651px) and (max-height:850px){.game-header h1{font-size:36px}.game-header{margin-bottom:12px}.header-right{gap:18px}.scene{max-height:335px}main{padding-top:17px}}
+@media(max-width:900px){.header-right{flex-direction:column;gap:12px}.header-right .tools{order:0}.game-header h1{font-size:39px}.result{gap:12px}.result-actions{min-width:115px}.result h2{font-size:22px}}
+@media(max-width:650px){.game-header{align-items:center;gap:8px}.game-header h1{font-size:32px;letter-spacing:3px}.game-header .eyebrow{font-size:7px;letter-spacing:1px;max-width:170px}.header-right{gap:9px;align-items:flex-end}.header-right .tools{display:grid;grid-template-columns:repeat(2,auto);gap:4px}.tools .quiet{padding:6px;font-size:9px}.header-right .stats{gap:10px}.result{padding:17px 12px;flex-wrap:wrap;gap:10px}.result-seal{width:42px;height:42px;font-size:24px}.result-body{min-width:230px}.result h2{font-size:22px}.result-actions{width:100%;display:flex}.result-actions button{flex:1}.result p{font-size:12px}.result .score-note{font-size:10px}#status-undo{padding:7px 10px;font-size:12px}#near-note{font-size:11px;max-width:170px}.replay-controls button{padding:8px 5px;font-size:12px}}
+
+</style>
+</head>
+<body>
+<!-- 全部图形、样式与逻辑均在本文件中；直接用浏览器打开即可，无需联网。 -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+<symbol id="farmer" viewBox="0 0 100 116">
+<ellipse cx="50" cy="108" rx="25" ry="5" fill="#34573a" opacity=".14"/><path d="M36 82l-2 24h13l3-19 4 19h13l-4-26" fill="#354f5b"/><path d="M33 60q17-11 34 0l6 27H27z" fill="#c7874e" stroke="#7b5b39" stroke-width="2"/><path d="M39 62v26h23V62" fill="#486b69"/><path d="M28 65l-7 20m51-20 8 19" stroke="#dba978" stroke-width="9" stroke-linecap="round"/><rect x="28" y="100" width="20" height="9" rx="4" fill="#514635"/><rect x="54" y="100" width="20" height="9" rx="4" fill="#514635"/><ellipse cx="50" cy="41" rx="22" ry="24" fill="#e9b983" stroke="#966c45" stroke-width="2"/><path d="M29 34v15l5-5V30m36 4v15l-5-5V30" fill="#705237"/><circle cx="42" cy="41" r="2.5" fill="#403a2d"/><circle cx="59" cy="41" r="2.5" fill="#403a2d"/><path d="M45 53q6 5 12-1" fill="none" stroke="#8c563b" stroke-width="2" stroke-linecap="round"/><path d="M22 28l10-6 6-17h25l7 17 10 6z" fill="#e5c46b" stroke="#94743b" stroke-width="2"/><path d="M32 22h38" stroke="#a98047" stroke-width="5"/><path d="M18 29q32 8 65 0" fill="none" stroke="#94743b" stroke-width="4" stroke-linecap="round"/>
+</symbol>
+<symbol id="wolf" viewBox="0 0 110 108">
+<ellipse cx="55" cy="100" rx="36" ry="5" fill="#34573a" opacity=".14"/><path d="M36 80Q9 86 9 63q-16 23 10 31l26-3" fill="#74878d" stroke="#455e65" stroke-width="2"/><path d="M32 59q23-14 44 2l5 31H28z" fill="#879b9e" stroke="#455e65" stroke-width="2"/><path d="M32 83v16h15V87m19-3v15h15V85" fill="#526b73"/><path d="M38 27l-4-22 23 15 18-15 8 26q19 14 9 37-27 21-57-1-14-24 3-40" fill="#90a2a3" stroke="#455e65" stroke-width="2.5"/><path d="M39 14l3 15 8-7m28-8-8 9 10 6" fill="#d7b4a5"/><path d="M35 51l23 8 30-8-7 20-21 9-22-12z" fill="#e4e9dc"/><ellipse cx="59" cy="60" rx="8" ry="5" fill="#344951"/><path d="M59 65v6l8 2" fill="none" stroke="#455e65" stroke-width="2"/><path d="M40 37l11 4m20 0 10-5" stroke="#455e65" stroke-width="3" stroke-linecap="round"/><circle cx="46" cy="46" r="3" fill="#344951"/><circle cx="74" cy="46" r="3" fill="#344951"/>
+</symbol>
+<symbol id="sheep" viewBox="0 0 110 108">
+<ellipse cx="55" cy="100" rx="34" ry="5" fill="#34573a" opacity=".14"/><path d="M30 76v22h12V77m29 0v21h12V75" fill="#6d6652"/><path d="M23 43q-11-14 5-22 2-19 22-14 16-12 27 4 22-1 20 20 15 13 2 26 10 20-10 25-6 16-25 9-18 12-29-3-23 4-21-17-15-13 9-28" fill="#fffbed" stroke="#c8c7ab" stroke-width="2.5"/><ellipse cx="28" cy="48" rx="15" ry="8" transform="rotate(23 28 48)" fill="#9a9175"/><ellipse cx="85" cy="48" rx="15" ry="8" transform="rotate(-23 85 48)" fill="#9a9175"/><path d="M35 44q22-16 43 0l-2 23q-20 25-39 0z" fill="#c3b596" stroke="#8d846e" stroke-width="2"/><circle cx="47" cy="55" r="2.6" fill="#4a4a3c"/><circle cx="66" cy="55" r="2.6" fill="#4a4a3c"/><path d="M52 65h9l-4 4z" fill="#74604c"/><path d="M57 69v4" stroke="#74604c" stroke-width="2"/><path d="M34 40q-2-13 10-13 3-10 14-5 12-5 15 6 12 1 8 12" fill="#fffbed" stroke="#c8c7ab" stroke-width="2"/>
+</symbol>
+<symbol id="cabbage" viewBox="0 0 110 108">
+<ellipse cx="55" cy="97" rx="33" ry="5" fill="#34573a" opacity=".14"/><path d="M54 91Q6 94 12 52q-6-22 19-27 9-20 26-12 24-9 32 13 22 6 13 32 4 32-48 33" fill="#7aab59" stroke="#4a793b" stroke-width="2.5"/><path d="M55 90Q18 68 30 38 46 7 65 31q31-3 23 34L66 91" fill="#a4c777" stroke="#5f9344" stroke-width="2"/><path d="M55 89Q36 64 43 43q8-19 19-3 14 13-7 49" fill="#d1dd91" stroke="#83a958" stroke-width="2"/><path d="M19 46q9 22 35 43m40-45Q81 70 59 90M55 89V46M28 69l-6-10m14 20 1-16m43 4 9-4m-21 16 1-16" fill="none" stroke="#eff0af" stroke-width="2.5" stroke-linecap="round"/><circle cx="48" cy="62" r="2" fill="#4b6b37"/><circle cx="62" cy="62" r="2" fill="#4b6b37"/><path d="M50 69q5 4 10 0" fill="none" stroke="#4b6b37" stroke-width="2" stroke-linecap="round"/>
+</symbol>
+<symbol id="empty" viewBox="0 0 100 100"><path d="M14 57h72L72 76H30z" fill="#bd8752" stroke="#805a39" stroke-width="3"/><path d="M51 20v37M39 35l12-15 12 15" fill="none" stroke="#78906b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 85h18m8 0h24" stroke="#91b7a7" stroke-width="3" stroke-linecap="round"/></symbol>
+</defs></svg>
+<main>
+<header class="game-header"><div><p class="eyebrow">A LITTLE RIVER, A CLEVER JOURNEY</p><h1>一河之隔</h1><p class="subtitle">农夫、狼、羊和白菜的过河谜题</p></div><div class="header-right"><div class="tools"><button class="quiet" id="sound" aria-pressed="true">音效：开</button><button class="quiet" id="speed" aria-pressed="false">动画：标准</button><button class="quiet" id="rules-button">游戏规则</button><button class="quiet" id="fullscreen">⛶ 全屏</button></div><div class="stats"><div class="stat"><label>已过河</label><strong id="moves">0</strong><small>次</small></div><div class="stat"><label>最少需要</label><strong>7</strong><small>次</small></div></div></div></header>
+<section class="game" aria-label="农夫、狼、羊和白菜过河游戏">
+<div class="scene-top"><div class="live"><span class="dot"></span><span id="phase">准备出发 · 农夫在左岸</span></div><span class="bank-progress" id="arrived">到达右岸 0 / 4</span></div>
+<div class="scene-wrap"><svg class="scene" viewBox="0 0 1180 430" preserveAspectRatio="xMidYMid meet" role="group" aria-label="过河场景：可以点击与农夫同岸的角色选择乘客">
+<defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#eaf2df"/><stop offset="1" stop-color="#f7f3db"/></linearGradient><linearGradient id="water" x2="0" y2="1"><stop stop-color="#b9d7c7"/><stop offset="1" stop-color="#74b5a6"/></linearGradient><pattern id="field" width="26" height="26" patternUnits="userSpaceOnUse"><path d="M3 22l2-5m10-8 2-4" stroke="#759a59" opacity=".23" stroke-width="2"/></pattern></defs>
+<rect width="1180" height="430" fill="url(#sky)"/><circle cx="905" cy="75" r="37" fill="#ebd58f"/><circle cx="905" cy="75" r="49" fill="#ebd58f" opacity=".15"/>
+<path d="M0 143Q130 42 261 132T524 117T811 125T1180 87V241H0Z" fill="#d6e2c8"/><path d="M0 169Q113 114 272 153T554 156T868 143T1180 167V256H0Z" fill="#bccfac"/>
+<g fill="#fffef5" opacity=".65"><path d="M205 57q0-14 17-12 5-21 27-10 17-3 21 12 21-1 20 10z"/><path d="M638 74q0-9 12-9 8-17 23-7 17-4 19 12 10-1 13 4z"/></g><g fill="none" stroke="#8b9b79" stroke-width="2" stroke-linecap="round"><path d="M499 69q7-8 14 0 7-8 14 0m-4-18q5-6 10 0 5-6 10 0"/></g>
+<path d="M459 144Q399 198 443 232T425 294Q373 353 336 430H856Q794 355 796 295T759 225Q724 181 751 144Z" fill="url(#water)"/>
+<path d="M0 184Q160 153 360 195L428 237Q408 302 380 348L336 430H0Z" fill="#b1c78c"/><path d="M1180 183Q1015 156 811 204L775 239Q797 301 821 355L856 430H1180Z" fill="#b6cb90"/>
+<path d="M0 233Q190 168 414 245L372 349 335 430H0Z" fill="#d3dfac"/><path d="M1180 232Q1000 182 789 246L822 351 857 430H1180Z" fill="#d7e2b1"/>
+<path d="M0 233Q190 168 414 245L372 349 335 430H0Z" fill="url(#field)"/><path d="M1180 232Q1000 182 789 246L822 351 857 430H1180Z" fill="url(#field)"/>
+<path d="M408 254q-21 82-67 163M790 254q23 83 60 163" fill="none" stroke="#efe4b3" stroke-width="9" stroke-linecap="round"/>
+<g stroke="#edf5d8" opacity=".5" stroke-width="3" fill="none" stroke-linecap="round"><path class="waterline" d="M494 204h41m94 0h52m-197 66h59m92-25h53"/><path class="waterline" d="M454 336h40m161-39h71m-210 78h42m86 25h75"/><path class="waterline" d="M559 235h30m-14 88h35m-134 82h23m243-53h34"/></g>
+<g><path d="M41 200v-64m0 20-20-15m20 34 21-19" stroke="#887b4b" stroke-width="8" stroke-linecap="round"/><ellipse cx="39" cy="119" rx="44" ry="46" fill="#809e65"/><ellipse cx="21" cy="134" rx="28" ry="34" fill="#90ad6c"/><ellipse cx="60" cy="137" rx="27" ry="33" fill="#789760"/><path d="M1117 202v-66" stroke="#887b4b" stroke-width="8"/><ellipse cx="1117" cy="127" rx="41" ry="46" fill="#91ab70"/><ellipse cx="1093" cy="147" rx="29" ry="30" fill="#83a066"/><ellipse cx="1141" cy="143" rx="26" ry="31" fill="#78965f"/></g>
+<g fill="#8aa264"><ellipse cx="72" cy="383" rx="36" ry="16"/><ellipse cx="1100" cy="379" rx="36" ry="17"/></g><g fill="#f0d48a"><circle cx="63" cy="367" r="4"/><circle cx="77" cy="377" r="4"/><circle cx="1090" cy="369" r="4"/></g>
+<g transform="translate(148 153)"><rect width="88" height="28" rx="14" fill="#f9f6e7" opacity=".9"/><text x="44" y="19" text-anchor="middle" font-size="12" fill="#68815a">左岸 · 起点</text></g><g transform="translate(944 153)"><rect width="88" height="28" rx="14" fill="#f9f6e7" opacity=".9"/><text x="44" y="19" text-anchor="middle" font-size="12" fill="#68815a">右岸 · 终点</text></g>
+<path id="bank-drop" class="bank-drop" d="M72 201H345V410H72Z"/>
+<g id="characters"></g><g id="risk-layer" pointer-events="none"></g>
+<g id="boat" class="boat-position" transform="translate(408 310)">
+<rect id="boat-drop" class="drop-target" x="-90" y="-78" width="180" height="150" rx="18"/>
+<g id="wake" pointer-events="none"><path d="M-145 55q30-10 55 0m-70 13q37-9 61-1m-36 16 27-5"/></g><g class="boat-bob" id="boat-body"><ellipse cx="0" cy="65" rx="78" ry="9" fill="#4d958b" opacity=".25"/>
+<g id="boat-seats"><rect class="seat" x="-63" y="-50" width="58" height="76" rx="12"/><rect class="seat" x="5" y="-50" width="58" height="76" rx="12"/><text class="seat-text" x="-34" y="-17">农夫</text><text class="seat-text" x="-34" y="1">驾驶位</text><text class="seat-text" x="34" y="-17">伙伴</text><text class="seat-text" x="34" y="1">可留空</text></g>
+<g id="seat-preview" pointer-events="none"></g><g id="boat-passengers"></g><path d="M-74 35H74L54 63Q0 76-54 63Z" fill="#ad7649" stroke="#785637" stroke-width="3"/><path d="M-67 43H67M-47 57h95" stroke="#cd965c" stroke-width="3"/><path d="M-76 33H76" stroke="#705237" stroke-width="7" stroke-linecap="round"/><g id="oar" pointer-events="none"><path d="M-28 2l79 77" stroke="#735d3c" stroke-width="5" stroke-linecap="round"/><path d="M44 71l15 14" stroke="#a5814c" stroke-width="12" stroke-linecap="round"/></g></g>
+<foreignObject x="-78" y="77" width="156" height="40"><button xmlns="http://www.w3.org/1999/xhtml" class="boat-cross" id="boat-cross" disabled>请农夫上船</button></foreignObject>
+</g><g id="drag-ghost" class="drag-ghost" visibility="hidden"><use id="drag-portrait" width="86" height="96"/></g>
+<g id="motion-layer" pointer-events="none"></g></svg><div id="near-note" role="status" hidden></div><div id="confetti" aria-hidden="true"></div></div>
+<div class="status" id="status" data-kind="ready" role="status" aria-live="polite" aria-atomic="true"><span class="status-icon" id="status-icon">→</span><div><strong id="status-title">第一步，你想带谁过河？</strong><p id="status-detail">选择一位同岸伙伴，或独自出发。先想一想，留下的伙伴是否安全。</p></div><button id="status-undo" class="quiet" hidden>↶ 撤回这一步</button></div>
+<section id="result" class="result" hidden aria-labelledby="result-title"><div class="result-seal" aria-hidden="true">✓</div><div class="result-body"><p class="eyebrow">EVERYONE MADE IT HOME</p><h2 id="result-title" tabindex="-1">所有伙伴，安全抵达。</h2><p id="result-summary"></p><div id="achievements" class="achievements"></div><p id="score-note" class="score-note"></p></div><div class="result-actions"><button class="cross" id="replay-result">回看路线</button><button class="quiet" id="play-again">再玩一次</button></div></section>
+</section>
+<section class="control-panel" aria-label="游戏操作"><div><div class="control-heading">拖上船，或用卡片快捷登船 <span>点击船上角色可下船 · 拖回原岸也可以</span></div><div class="choices" id="choices">
+<button class="choice" data-cargo="none" aria-pressed="true"><svg aria-hidden="true"><use href="#empty"/></svg><span><b>独自过河</b><small>不携带伙伴 · 0</small></span></button>
+<button class="choice" data-cargo="wolf" aria-pressed="false"><svg aria-hidden="true"><use href="#wolf"/></svg><span><b>带上狼</b><small>与农夫同岸 · 1</small></span></button>
+<button class="choice" data-cargo="sheep" aria-pressed="false"><svg aria-hidden="true"><use href="#sheep"/></svg><span><b>带上羊</b><small>与农夫同岸 · 2</small></span></button>
+<button class="choice" data-cargo="cabbage" aria-pressed="false"><svg aria-hidden="true"><use href="#cabbage"/></svg><span><b>带上白菜</b><small>与农夫同岸 · 3</small></span></button>
+</div><div class="board-info" id="board-info">驾驶位：待上船　/　伙伴位：空</div></div><div class="departure"><button class="cross" id="cross" disabled>请农夫先上船</button><div class="secondary-actions"><button class="quiet" id="undo" disabled>↶ 撤回</button><button class="quiet" id="hint">一点提示</button><button class="quiet" id="restart">重新开始</button></div></div></section>
+<section class="bottom"><div><h2 class="section-title">记住这三件事 <span>先观察，再行动</span></h2><div class="rules"><div class="rule"><b>一人，一位伙伴</b><br>农夫掌舵，船不能超载；<br>也可以独自往返。</div><div class="rule"><b>离岸才检查危险</b><br>靠岸装卸时暂不判失败；<br>过河完成后检查两岸。</div><div class="rule"><b>一起抵达，才算成功</b><br>农夫不在时，狼会吃羊；<br>羊也会吃白菜。</div></div></div><div><div class="log-title-row"><h2 class="section-title">渡河记录 <span id="log-label">你的路线会出现在这里</span></h2><button class="export" id="export-route" disabled>导出路线 .txt</button></div><ol class="log" id="log"><li class="empty">还没有出发。每一次选择，都是推理的一部分。</li></ol></div></section>
+<footer><span>制作 · 吴家山中学 AI 科学社</span><span>键盘：0–3 选乘客 / Enter 出发　·　单文件离线运行</span></footer>
+</main>
+<dialog id="rules-dialog" aria-labelledby="rules-title"><h2 id="rules-title">小船的规则</h2><p>农夫要把狼、羊和白菜从左岸运到右岸。船上有一个农夫驾驶位，以及一个可留空的伙伴位。</p><ol><li>点击或拖拽农夫和同岸伙伴上船，再点击船上的“过河”按钮。农夫必须在船上。</li><li>点击船上角色，或拖回停船这一岸，可以下船。不能直接把角色拖到对岸。</li><li>下方卡片会自动让农夫和所选伙伴登船，也可以选择独自过河。靠岸装卸期间不检查危险。</li><li>每次过河结束，角色自动下船并检查两岸。农夫不在时，狼会吃羊，羊会吃白菜。</li><li>全部安全抵达右岸即成功；失败可撤回一步。最少需要 7 次过河。</li></ol><p class="hint-box">键盘：<b>0–3</b> 快捷登船，<b>F</b> 切换农夫上下船，<b>Enter</b> 出发。也可用 Tab 选择角色和按钮，再按 Enter 操作。</p><button class="cross close" data-close>明白了，开始思考</button></dialog>
+<dialog id="hint-dialog" aria-labelledby="hint-title"><h2 id="hint-title">先想一想，再看下一步</h2><p>看看农夫即将离开的这一岸：留下谁，会让另一位伙伴遇到危险？有时，带回来也是一种前进。</p><div class="hint-box" id="hint-content">先检查“狼与羊”和“羊与白菜”这两组组合。农夫在哪一岸，就能照看哪一岸。</div><button class="quiet hint-reveal" id="reveal-hint">还是没想出来，看看下一步</button><p class="legend">提示根据当前局面计算，不会自动移动角色或展示完整答案。</p><button class="cross close" data-close>回到游戏试一试</button></dialog>
+<dialog id="restart-dialog" aria-labelledby="restart-title"><h2 id="restart-title">重新开始这一局？</h2><p>四位伙伴将回到左岸，本局渡河记录会清空。</p><button class="cross close" id="confirm-restart">重新开始</button><button class="quiet close" data-close>继续当前游戏</button></dialog>
+<dialog id="replay-dialog" aria-labelledby="replay-title"><h2 id="replay-title">回看这段旅程</h2><p id="replay-caption"></p><svg id="replay-map" viewBox="0 0 440 190" role="img" aria-label="当前回放步骤的两岸位置"></svg><input type="range" id="replay-slider" min="0" max="7" value="0" aria-label="选择回看步骤"><div class="replay-controls"><button class="quiet" id="replay-prev">← 上一步</button><button class="quiet" id="replay-play">自动播放</button><button class="quiet" id="replay-next">下一步 →</button></div><p class="legend">回看不会修改本局结果、步数或提示记录。</p><button class="cross close" data-close>回到游戏</button></dialog><script>
+'use strict';
+// 状态顺序：农夫、狼、羊、白菜。0 代表左岸，1 代表右岸。
+const RiverRules = (() => {
+  const names = ['农夫','狼','羊','白菜'];
+  function danger(s) {
+    if(s[1]===s[2] && s[0]!==s[2]) return {bank:s[2],message:'狼和羊被单独留在'+(s[2]?'右岸':'左岸')+'，羊遇到了危险。'};
+    if(s[2]===s[3] && s[0]!==s[2]) return {bank:s[2],message:'羊和白菜被单独留在'+(s[2]?'右岸':'左岸')+'，白菜被羊吃掉了。'};
+    return null;
+  }
+  function move(s,cargo) {
+    if(!Number.isInteger(cargo)||cargo<0||cargo>3) return null;
+    if(danger(s)||s.every(v=>v===1)) return null;
+    if(cargo && s[cargo]!==s[0]) return null;
+    const next=s.slice();next[0]=1-next[0];if(cargo) next[cargo]=1-next[cargo];return next;
+  }
+  function solve(start) {
+    if(danger(start)) return null;
+    const queue=[{s:start.slice(),path:[]}],seen=new Set([start.join('')]);
+    for(let i=0;i<queue.length;i++) {
+      const {s,path}=queue[i];if(s.every(v=>v===1)) return path;
+      for(let cargo=0;cargo<=3;cargo++) {const next=move(s,cargo);if(!next||danger(next)||seen.has(next.join('')))continue;seen.add(next.join(''));queue.push({s:next,path:path.concat(cargo)});}
+    }
+    return null;
+  }
+  return {names,danger,move,solve};
+})();
+const $=id=>document.getElementById(id);
+const ids=['farmer','wolf','sheep','cabbage'], names=RiverRules.names;
+const slots=[[106,161],[231,168],[118,275],[241,277]];
+const SVG='http://www.w3.org/2000/svg';
+const scene=document.querySelector('.scene');
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+// 音效完全由 Web Audio 合成；首次真实点击/按键时启用，遵守浏览器自动播放限制。
+const gameSound=(()=>{
+ let enabled=true,context=null,master=null,noiseBuffer=null,sailTimer=0,unsupported=false;
+ const playing=new Set(),last=new Map();
+ try{enabled=localStorage.getItem('one-river-sound-v1')!=='off';}catch{}
+ function refresh(){const b=$('sound');if(!b)return;b.textContent=unsupported?'音效：不可用':enabled?'音效：开':'音效：关';b.setAttribute('aria-pressed',String(enabled&&!unsupported));b.setAttribute('aria-label',unsupported?'当前浏览器不支持游戏音效':enabled?'关闭游戏音效':'开启游戏音效');}
+ function stopSailing(){clearInterval(sailTimer);sailTimer=0;}
+ function stopAll(){stopSailing();for(const s of [...playing]){try{s.stop();}catch{}try{s.disconnect();}catch{}playing.delete(s);}last.clear();}
+ async function unlock(){
+  if(!enabled||unsupported)return false;
+  try{
+   if(!context){const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio){unsupported=true;refresh();return false;}context=new Audio();master=context.createGain();master.gain.value=.42;master.connect(context.destination);
+    noiseBuffer=context.createBuffer(1,Math.ceil(context.sampleRate*.4),context.sampleRate);const data=noiseBuffer.getChannelData(0);for(let i=0;i<data.length;i++)data[i]=Math.random()*2-1;
+   }
+   if(context.state==='suspended')await context.resume();return context.state==='running';
+  }catch{return false;}
+ }
+ function retain(source,nodes){playing.add(source);source.onended=()=>{playing.delete(source);for(const n of [source,...nodes]){try{n.disconnect();}catch{}}};}
+ function note(freq,delay=0,length=.14,volume=.13,type='sine',end=freq){
+  const start=context.currentTime+delay,osc=context.createOscillator(),gain=context.createGain();osc.type=type;osc.frequency.setValueAtTime(freq,start);osc.frequency.exponentialRampToValueAtTime(Math.max(30,end),start+length);
+  gain.gain.setValueAtTime(0,start);gain.gain.linearRampToValueAtTime(volume,start+.007);gain.gain.exponentialRampToValueAtTime(.0001,start+length);osc.connect(gain);gain.connect(master);retain(osc,[gain]);osc.start(start);osc.stop(start+length+.025);
+ }
+ function water(delay=0,volume=.09){
+  const start=context.currentTime+delay,source=context.createBufferSource(),filter=context.createBiquadFilter(),gain=context.createGain();source.buffer=noiseBuffer;filter.type='bandpass';filter.frequency.setValueAtTime(900,start);filter.frequency.exponentialRampToValueAtTime(350,start+.22);filter.Q.value=.7;
+  gain.gain.setValueAtTime(0,start);gain.gain.linearRampToValueAtTime(volume,start+.028);gain.gain.exponentialRampToValueAtTime(.0001,start+.24);source.connect(filter);filter.connect(gain);gain.connect(master);retain(source,[filter,gain]);source.start(start);source.stop(start+.26);
+ }
+ function play(kind){
+  if(!enabled||!context||context.state!=='running'||document.hidden)return;
+  const time=context.currentTime;if(last.has(kind)&&time-last.get(kind)<.075)return;last.set(kind,time);
+  try{switch(kind){
+   case 'pick':note(540,0,.075,.065,'sine',650);break;
+   case 'board':note(480,0,.09,.14,'triangle',270);note(740,.045,.095,.055);break;
+   case 'step':note(310,0,.09,.09,'triangle',220);break;
+   case 'paddle':water(0,.085);note(145,.015,.12,.035,'sine',105);break;
+   case 'dock':water(0,.065);note(180,0,.12,.15,'triangle',95);note(270,.08,.09,.07,'triangle',150);break;
+   case 'error':note(240,0,.13,.085,'triangle',190);break;
+   case 'undo':note(420,0,.10,.065);note(560,.065,.13,.065);break;
+   case 'lose':note(350,0,.21,.10,'triangle',290);note(220,.17,.25,.10,'sine',180);break;
+   case 'win':[523.25,659.25,783.99,1046.5].forEach((f,i)=>note(f,i*.13,.28,.095,'triangle'));note(523.25,.48,.5,.05);note(783.99,.48,.5,.04);break;
+  }}catch{/* 音频设备异常不影响游戏进程。 */}
+ }
+ function startSailing(){stopSailing();play('paddle');if(enabled)sailTimer=setInterval(()=>play('paddle'),fast?210:440);}
+ async function toggle(){enabled=!enabled;if(!enabled){stopAll();if(master)master.gain.value=0;}else{await unlock();if(master)master.gain.value=.42;play('pick');}try{localStorage.setItem('one-river-sound-v1',enabled?'on':'off');}catch{}refresh();}
+ return{unlock,play,startSailing,stopSailing,stopAll,toggle,refresh};
+})();
+document.addEventListener('pointerdown',e=>{if(e.isTrusted)void gameSound.unlock();},{capture:true});
+document.addEventListener('keydown',e=>{if(e.isTrusted&&!e.repeat)void gameSound.unlock();},{capture:true});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)gameSound.stopAll();});
+$('sound').addEventListener('click',()=>void gameSound.toggle());gameSound.refresh();
+let state=[0,0,0,0],selected=0,farmerOnBoat=false,history=[],busy=false,epoch=0;
+let drag=null,notice=null,stage='',stageDetail='',visualBank=0,fast=false;
+let hintUses=0,answerUses=0,undoUses=0,winRegistered=false,runFirstWin=false,currentAward=null;
+let sessionWins=0,noteTimer=0,replayStep=0,replayTimer=0,suppressClickUntil=0;
+try{const n=Number(localStorage.getItem('one-river-completed-v1'));if(Number.isSafeInteger(n)&&n>0)sessionWins=n;}catch{}
+const isWon=()=>state.every(v=>v===1), isOver=()=>!!RiverRules.danger(state)||isWon();
+const onboard=i=>i===0?farmerOnBoat:selected===i;
+const bx=bank=>bank?772:408;
+const bankRect=(i,bank=state[i])=>({x:slots[i][0]+bank*720,y:slots[i][1],w:86,h:91});
+const seatRect=(i,bank=state[0])=>({x:bx(bank)+(i?4:-63),y:266,w:60,h:90});
+const boatRect=bank=>({x:bx(bank)-90,y:232,w:180,h:150});
+const homeRect=bank=>({x:bank?862:10,y:175,w:308,h:250});
+const Geometry={
+ area:r=>Math.max(0,r.w)*Math.max(0,r.h),
+ contains:(r,p)=>p.x>=r.x&&p.x<=r.x+r.w&&p.y>=r.y&&p.y<=r.y+r.h,
+ overlap:(a,b)=>Math.max(0,Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x))*Math.max(0,Math.min(a.y+a.h,b.y+b.h)-Math.max(a.y,b.y)),
+ // 大面积角色与小座位相交时，以较小面积计；实际约四分之一座位被覆盖即可吸附。
+ accepts(r,target,p){return this.contains(target,p)||this.overlap(r,target)>=Math.min(this.area(r),this.area(target))*.28;}
+};
+function el(tag,attrs={},parent){const n=document.createElementNS(SVG,tag);for(const [k,v]of Object.entries(attrs))n.setAttribute(k,v);if(parent)parent.appendChild(n);return n;}
+function duration(ms){return reduced.matches?0:Math.round(ms*(fast?.33:1));}
+function animate(ms,draw,token=epoch){return new Promise(resolve=>{const length=duration(ms);if(!length){if(token===epoch)draw(1);resolve(token===epoch);return;}const start=performance.now();function frame(now){if(token!==epoch){resolve(false);return;}const t=Math.min(1,(now-start)/length);draw(t);if(t<1)requestAnimationFrame(frame);else resolve(true);}requestAnimationFrame(frame);});}
+function ease(t){return 1-Math.pow(1-t,3);}
+function setStatus(title,detail,kind='ready'){$('status').dataset.kind=kind;$('status-title').textContent=title;$('status-detail').textContent=detail;$('status-icon').textContent=kind==='lost'?'!':kind==='won'?'✓':'→';}
+function syncControls(){
+ const over=isOver(),locked=busy||!!drag,off=locked||over||!farmerOnBoat;
+ document.querySelectorAll('.choice').forEach((b,i)=>{b.disabled=locked||over||i>0&&state[i]!==state[0];b.setAttribute('aria-pressed',String(farmerOnBoat&&selected===i));if(i)b.querySelector('small').textContent=(state[i]===state[0]?'点击快捷登船':'在另一岸')+' · '+i;});
+ $('cross').disabled=off;$('boat-cross').disabled=off;
+ $('cross').textContent=busy?(stage==='sailing'?'正在过河…':stage==='landing'?'正在靠岸…':'请稍候…'):isWon()?'已安全抵达 ✓':over?'本局已结束':!farmerOnBoat?'请农夫先上船':state[0]?'← 出发去左岸':'出发去右岸 →';
+ $('boat-cross').textContent=busy?(stage==='sailing'?'划船中…':stage==='landing'?'靠岸中…':'稍候…'):isWon()?'通关 ✓':over?'本局结束':!farmerOnBoat?'请农夫上船':state[0]?'← 点击过河':'点击过河 →';
+ $('boat-cross').dataset.busy=String(busy);
+ for(const id of ['hint','rules-button','speed','fullscreen'])$(id).disabled=locked||(id==='hint'&&over);
+ $('undo').disabled=locked||!history.length;$('status-undo').disabled=locked||!history.length;$('restart').disabled=locked;$('export-route').disabled=locked||!history.length;
+ scene.querySelectorAll('[data-entity],[data-aboard]').forEach(n=>{const i=Number(n.dataset.entity??n.dataset.aboard),disabled=locked||over||!n.hasAttribute('data-aboard')&&state[i]!==state[0];n.setAttribute('aria-disabled',String(disabled));n.setAttribute('tabindex',disabled?'-1':'0');});
+}
+function drawCharacters(){
+ const risk=RiverRules.danger(state), pairs=riskPairs(state), badIDs=new Set(pairs.flat());
+ $('characters').innerHTML=ids.map((id,i)=>{if(onboard(i))return '';const r=bankRect(i),enabled=!busy&&!isOver()&&state[i]===state[0];return '<g transform="translate('+r.x+' '+r.y+')" class="entity '+(enabled?'':'unavailable')+(risk&&badIDs.has(i)?' at-risk':'')+'" data-entity="'+i+'" role="button" aria-label="让'+names[i]+'上船，在'+(state[i]?'右岸':'左岸')+'" tabindex="'+(enabled?0:-1)+'"><ellipse class="selected-ring" cx="43" cy="85" rx="46" ry="15" fill="#f7e9b0" stroke="#ab9253" stroke-width="2"/><use class="sprite" href="#'+id+'" width="86" height="91"/><text class="entity-label" x="43" y="109" text-anchor="middle">'+names[i]+'</text><text class="hover-label" x="43" y="-10" text-anchor="middle">上船 ↑</text></g>';}).join('');
+}
+function drawBoat(){
+ $('boat-seats').innerHTML=[farmerOnBoat,!!selected].map((yes,i)=>yes?'':'<rect class="seat" x="'+(i?5:-63)+'" y="-50" width="58" height="76" rx="12"/><text class="seat-text" x="'+(i?34:-34)+'" y="-17">'+(i?'伙伴':'农夫')+'</text><text class="seat-text" x="'+(i?34:-34)+'" y="1">'+(i?'可留空':'驾驶位')+'</text>').join('');
+ $('boat-passengers').innerHTML=ids.map((id,i)=>!onboard(i)?'':'<g class="boat-passenger" data-aboard="'+i+'" role="button" tabindex="'+(busy?-1:0)+'" aria-label="让'+names[i]+'下船" transform="translate('+(i?4:-63)+' -44)"><rect width="60" height="90" rx="10"/><use href="#'+id+'" width="60" height="90"/></g>').join('');
+}
+function riskPairs(s){return [[1,2],[2,3]].filter(([a,b])=>s[a]===s[b]&&s[0]!==s[a]);}
+function drawRisk(){
+ const layer=$('risk-layer');layer.innerHTML='';const pairs=riskPairs(state);if(!pairs.length)return;
+ const bank=state[pairs[0][0]];el('rect',{x:bank?815:75,y:185,width:300,height:215,rx:25,class:'risk-bank'},layer);
+ for(const [a,b]of pairs){const ra=bankRect(a),rb=bankRect(b);el('ellipse',{cx:ra.x+43,cy:ra.y+85,rx:44,ry:13,class:'risk-ring'},layer);el('ellipse',{cx:rb.x+43,cy:rb.y+85,rx:44,ry:13,class:'risk-ring'},layer);el('path',{d:'M'+(ra.x+43)+' '+(ra.y+49)+' Q'+(Math.min(ra.x,rb.x)-22)+' '+((ra.y+rb.y)/2+45)+' '+(rb.x+43)+' '+(rb.y+49),class:'risk-relation'},layer);}
+ const t=el('text',{x:bank?960:220,y:191,'text-anchor':'middle',class:'risk-caption'},layer);t.textContent=(bank?'右岸':'左岸')+'无人看守';layer.classList.add('risk-present');
+}
+function render(){
+ const active=document.activeElement, focusId=active?.dataset?.entity??active?.dataset?.aboard;
+ $('moves').textContent=history.length;$('arrived').textContent='到达右岸 '+state.reduce((a,b)=>a+b,0)+' / 4';
+ $('phase').textContent=busy?stageDetail:isWon()?'挑战完成 · 全员安全抵达':isOver()?'本局结束 · 可以撤回再试':'小船停靠'+(state[0]?'右岸':'左岸')+' · '+(farmerOnBoat?'农夫已上船':'等待登船');
+ $('board-info').textContent='驾驶位：'+(farmerOnBoat?'农夫已就位':'待农夫上船')+'　/　伙伴位：'+(selected?names[selected]:'空，可独自出发');
+ drawCharacters();drawBoat();syncControls();
+ $('boat').setAttribute('transform','translate('+bx(visualBank)+' 310)');
+ $('status-undo').hidden=busy||!RiverRules.danger(state);$('result').hidden=busy||!isWon()||!currentAward;
+ if(busy)setStatus(stageDetail,stage==='sailing'?'小船正在航行，靠岸后才能继续操作。':stage==='judging'?'观察出问题的岸和伙伴组合。':'动作完成后即可继续操作。');
+ else if(RiverRules.danger(state))setStatus('这一步让伙伴遇到了危险',RiverRules.danger(state).message,'lost');
+ else if(isWon())setStatus('旅程完成，四位伙伴都安全抵达。','你可以回看路线，也可以重新挑战。','won');
+ else if(notice)setStatus(notice.title,notice.detail);
+ else if(history.length)setStatus('安全靠岸，所有乘客已下船','安排下一次出发。别忘了，也可以把伙伴带回来。');
+ else setStatus('把农夫和伙伴带上小船','拖拽或点击角色登船；下方卡片可快捷安排。点击船上的按钮出发。');
+ $('log-label').textContent=history.length?'共 '+history.length+' 次过河':'你的路线会出现在这里';
+ $('log').innerHTML=history.length?history.map((h,i)=>'<li'+(RiverRules.danger(h.after)?' class="bad"':'')+'>'+(i+1)+'. '+(h.cargo?names[h.cargo]:'独自')+' '+(h.after[0]?'→ 右岸':'← 左岸')+'</li>').join(''):'<li class="empty">还没有出发。每一次选择，都是推理的一部分。</li>';
+ if(!busy){drawRisk();if(currentAward&&isWon())showResult();if(focusId!==undefined){const target=scene.querySelector('[data-aboard="'+focusId+'"],[data-entity="'+focusId+'"]');if(target?.getAttribute('tabindex')==='0')target.focus({preventScroll:true});}}
+}
+function feedback(title,detail){notice={title,detail};if(!busy)render();}
+function near(text,rect,success=false){
+ clearTimeout(noteTimer);const box=document.querySelector('.scene-wrap').getBoundingClientRect();
+ const p=new DOMPoint(rect.x+rect.w/2,rect.y).matrixTransform(scene.getScreenCTM());
+ const node=$('near-note');node.textContent=text;node.classList.toggle('success',success);node.hidden=false;const half=Math.min(105,box.width/2-10);node.style.left=Math.max(half,Math.min(box.width-half,p.x-box.left))+'px';node.style.top=Math.max(38,Math.min(box.height-12,p.y-box.top-10))+'px';noteTimer=setTimeout(()=>node.hidden=true,2200);
+}
+function sourceNode(i){return scene.querySelector(onboard(i)?'[data-aboard="'+i+'"]':'[data-entity="'+i+'"]');}
+function sourceRect(i){const n=sourceNode(i)?.querySelector('use');if(!n)return onboard(i)?seatRect(i):bankRect(i);const r=n.getBoundingClientRect(),m=scene.getScreenCTM().inverse(),a=new DOMPoint(r.left,r.top).matrixTransform(m),b=new DOMPoint(r.right,r.bottom).matrixTransform(m);return{x:a.x,y:a.y,w:b.x-a.x,h:b.y-a.y};}
+function svgPoint(x,y){return new DOMPoint(x,y).matrixTransform(scene.getScreenCTM().inverse());}
+async function fly(i,from,to,token,hop=10){
+ // 必须在插入可见 DOM 前设置位置与尺寸。省略 use 的宽高会使 symbol 先按整个 SVG 视口绘制一帧。
+ const g=el('g',{transform:'translate('+from.x+' '+from.y+')'}),u=el('use',{href:'#'+ids[i],width:from.w,height:from.h},g);
+ $('motion-layer').appendChild(g);
+ const ok=await animate(280,t=>{const k=ease(t),r={x:from.x+(to.x-from.x)*k,y:from.y+(to.y-from.y)*k-Math.sin(Math.PI*k)*hop,w:from.w+(to.w-from.w)*k,h:from.h+(to.h-from.h)*k};g.setAttribute('transform','translate('+r.x+' '+r.y+')');u.setAttribute('width',r.w);u.setAttribute('height',r.h);},token);g.remove();return ok;
+}
+function startStage(kind,label){busy=true;stage=kind;stageDetail=label;syncControls();$('phase').textContent=label;setStatus(label,kind==='sailing'?'小船正在航行，靠岸后才能继续操作。':'动作完成后即可继续操作。');$('status-undo').hidden=true;$('result').hidden=true;}
+async function transfer(i,toBoat,token,override){
+ const from=override||sourceRect(i),to=toBoat?seatRect(i):bankRect(i);sourceNode(i)?.classList.add('motion-hidden');
+ if(!await fly(i,from,to,token))return false;
+ if(i===0)farmerOnBoat=toBoat;else selected=toBoat?i:0;gameSound.play(toBoat?'board':'step');render();return true;
+}
+function boardError(i){if(state[i]!==state[0])return ['伙伴在另一岸','先把船开到它所在的岸。'];if(i>0&&selected&&selected!==i)return ['伙伴位已满','先让'+names[selected]+'下船，或用卡片更换乘客。'];return null;}
+async function rejectDrag(i,from,origin,reason){const token=++epoch;startStage('returning','没有放好，角色正在返回');sourceNode(i)?.classList.add('motion-hidden');gameSound.play('error');near(reason[0],from);await fly(i,from,origin,token,3);if(token!==epoch)return;busy=false;stage='';feedback(reason[0],reason[1]);}
+async function board(i,override){
+ if(busy||drag||isOver())return;const error=boardError(i);if(error){gameSound.play('error');near(error[0],sourceRect(i));feedback(...error);return;}
+ if(onboard(i))return;const token=++epoch;startStage('boarding',names[i]+'正在登船');if(!await transfer(i,true,token,override))return;
+ busy=false;stage='';feedback(names[i]+'已上船',farmerOnBoat?'准备好后，点击船上的“过河”。':'伙伴已就位，还需要农夫驾驶。');near('已登船',seatRect(i),true);
+}
+async function unboard(i,override){if(busy||drag||isOver()||!onboard(i))return;const token=++epoch;startStage('unloading',names[i]+'正在下船');if(!await transfer(i,false,token,override))return;busy=false;stage='';feedback(names[i]+'已回到'+(state[0]?'右岸':'左岸'),'可以重新安排乘客。装卸不增加过河次数。');}
+async function choose(i){
+ if(busy||drag||isOver()||!Number.isInteger(i)||i<0||i>3||i>0&&state[i]!==state[0])return;
+ const token=++epoch;startStage('boarding','正在安排本次乘客');
+ if(selected&&selected!==i&&!await transfer(selected,false,token))return;
+ if(!farmerOnBoat&&!await transfer(0,true,token))return;
+ if(i&&selected!==i&&!await transfer(i,true,token))return;
+ busy=false;stage='';feedback(i?'农夫和'+names[i]+'准备出发':'农夫准备独自出发','点击船上的“过河”。出发前检查：留下的伙伴是否安全？');
+}
+async function cross(){
+ if(busy||drag||isOver())return;if(!farmerOnBoat){feedback('农夫还没有上船','请农夫坐到驾驶位后再出发。');return;}
+ const next=RiverRules.move(state,selected);if(!next)return;const cargo=selected,before=state.slice(),token=++epoch;notice=null;
+ startStage('sailing','正在前往'+(next[0]?'右岸':'左岸'));scene.classList.add('sailing');gameSound.startSailing();$('wake').setAttribute('transform',next[0]?'':'scale(-1 1)');
+ const from=bx(state[0]),to=bx(next[0]);
+ if(!await animate(900,t=>{$('boat').setAttribute('transform','translate('+(from+(to-from)*(t*t*(3-2*t)))+' 310)');},token)){gameSound.stopSailing();return;}
+ gameSound.stopSailing();gameSound.play('dock');scene.classList.remove('sailing');startStage('landing','小船已经到岸，正在停稳');visualBank=next[0];
+ if(!await animate(190,t=>{$('boat-body').setAttribute('transform','rotate('+(Math.sin(t*Math.PI*2)*2.2*(1-t))+' 0 44)');},token))return;
+ $('boat-body').removeAttribute('transform');
+ // 先更新靠岸位置，再表现下船；结果只在下船动画结束之后公布。
+ state=next;history.push({before,after:next.slice(),cargo});startStage('unloading','已靠岸，乘客正在下船');render();
+ if(cargo&&!await transfer(cargo,false,token))return;if(!await transfer(0,false,token))return;
+ if(RiverRules.danger(state)){startStage('judging','这一步有危险，看看无人看守的岸');drawRisk();gameSound.play('lose');if(!await animate(320,()=>{},token))return;}
+ busy=false;stage='';if(isWon())registerWin();render();if(isWon()){gameSound.play('win');celebrate();$('result-title').focus({preventScroll:true});}else if(isOver())$('status-undo').focus({preventScroll:true});
+}
+function registerWin(){
+ if(!winRegistered){runFirstWin=sessionWins===0;sessionWins++;try{localStorage.setItem('one-river-completed-v1',String(sessionWins));}catch{}winRegistered=true;}
+ currentAward={first:runFirstWin,steps:history.length,hints:hintUses,answers:answerUses,undos:undoUses};
+}
+function showResult(){
+ const a=currentAward,independent=a.hints===0;
+ $('result-title').textContent=a.steps===7?'七次过河，恰到好处。':'所有伙伴，安全抵达。';
+ $('result-summary').textContent='本局 '+a.steps+' 次过河 · 查看提示 '+a.hints+' 次（揭示下一步 '+a.answers+' 次）· 撤回 '+a.undos+' 次';
+ const badges=[];if(a.first)badges.push(['首次通关','']);badges.push([independent?'独立完成':'提示辅助完成',independent?'independent':'']);if(a.steps===7)badges.push([independent?'七步最优 · 独立解出':'七步最优 · 使用提示','']);
+ $('achievements').innerHTML=badges.map(([t,c])=>'<span class="achievement '+c+'">'+t+'</span>').join('');
+ $('score-note').textContent=independent?'本局未查看提示；“独立完成”按本局记录认定。':'这条路线达到 '+a.steps+' 步，成绩标记为提示辅助完成。';
+}
+function celebrate(){
+ if(reduced.matches)return;const layer=$('confetti');layer.innerHTML='';const colors=['#d2ac52','#718f5f','#c2774a','#e3cb84'];
+ for(let i=0;i<24;i++){const n=document.createElement('i');n.style.setProperty('--dx',((i%2?-1:1)*(50+i*13))+'px');n.style.setProperty('--dy',(110+i%7*29)+'px');n.style.setProperty('--rot',(i*51)+'deg');n.style.setProperty('--delay',(i%4*.025)+'s');n.style.background=colors[i%4];layer.appendChild(n);}setTimeout(()=>layer.replaceChildren(),1400);
+}
+function undo(){if(busy||drag||!history.length)return;gameSound.stopAll();gameSound.play('undo');epoch++;const h=history.pop();state=h.before.slice();visualBank=state[0];selected=h.cargo;farmerOnBoat=true;undoUses++;currentAward=null;notice={title:'已撤回到出发前',detail:'提示与撤回次数仍保留；可以重新安排乘客。'};$('risk-layer').innerHTML='';$('confetti').innerHTML='';render();}
+function reset(){cancelDrag();gameSound.stopAll();epoch++;stopReplay();busy=false;stage='';state=[0,0,0,0];visualBank=0;selected=0;farmerOnBoat=false;history=[];hintUses=0;answerUses=0;undoUses=0;notice=null;currentAward=null;winRegistered=false;runFirstWin=false;scene.classList.remove('sailing');$('boat-body').removeAttribute('transform');$('motion-layer').innerHTML='';$('risk-layer').innerHTML='';$('confetti').innerHTML='';$('near-note').hidden=true;render();}
+function dragRect(d,p){return{x:p.x-d.grab.x,y:p.y-d.grab.y,w:d.origin.w,h:d.origin.h};}
+function dropTarget(d,p,r){
+ if(d.fromBoat){if(Geometry.accepts(r,homeRect(state[0]),p))return 'bank';if(Geometry.accepts(r,boatRect(state[0]),p))return 'boat';return 'invalid';}
+ return Geometry.accepts(r,boatRect(state[0]),p)||Geometry.accepts(r,seatRect(d.i),p)?'boat':'invalid';
+}
+function paintGhost(i,r){$('drag-portrait').setAttribute('href','#'+ids[i]);$('drag-portrait').setAttribute('width',r.w);$('drag-portrait').setAttribute('height',r.h);$('drag-ghost').setAttribute('transform','translate('+r.x+' '+r.y+')');$('drag-ghost').setAttribute('visibility','visible');}
+function cancelDrag(){const old=drag;drag=null;scene.classList.remove('dragging');scene.querySelectorAll('.lifted').forEach(n=>n.classList.remove('lifted'));$('drag-ghost').setAttribute('visibility','hidden');$('boat-drop').classList.remove('drop-valid','drop-invalid');$('bank-drop').classList.remove('active');$('seat-preview').classList.remove('visible');$('seat-preview').innerHTML='';if(old&&scene.hasPointerCapture(old.pointerId))scene.releasePointerCapture(old.pointerId);if(old)syncControls();return old;}
+scene.addEventListener('pointerdown',e=>{
+ if(busy||isOver()||drag||e.button!==0||!e.isPrimary)return;const n=e.target.closest('[data-entity],[data-aboard]');if(!n)return;
+ const fromBoat=n.hasAttribute('data-aboard'),i=Number(fromBoat?n.dataset.aboard:n.dataset.entity),p=svgPoint(e.clientX,e.clientY),origin=sourceRect(i);
+ if(!fromBoat&&state[i]!==state[0]){gameSound.play('error');near('小船在另一岸',origin);return;}
+ drag={i,fromBoat,pointerId:e.pointerId,start:{x:e.clientX,y:e.clientY},origin,grab:{x:p.x-origin.x,y:p.y-origin.y},current:origin,moved:false,node:n};scene.setPointerCapture(e.pointerId);e.preventDefault();
+});
+scene.addEventListener('pointermove',e=>{
+ if(!drag||drag.pointerId!==e.pointerId)return;if(!drag.moved&&Math.hypot(e.clientX-drag.start.x,e.clientY-drag.start.y)<6)return;
+ if(!drag.moved)gameSound.play('pick');drag.moved=true;e.preventDefault();drag.node.classList.add('lifted');scene.classList.add('dragging');syncControls();const p=svgPoint(e.clientX,e.clientY),r=dragRect(drag,p);drag.current=r;paintGhost(drag.i,r);
+ const target=dropTarget(drag,p,r),error=boardError(drag.i),valid=target==='boat'&&(drag.fromBoat||!error);
+ $('boat-drop').classList.toggle('drop-valid',valid);$('boat-drop').classList.toggle('drop-invalid',target==='boat'&&!valid);
+ $('bank-drop').setAttribute('d',state[0]?'M862 175H1170V425H862Z':'M10 175H318V425H10Z');$('bank-drop').classList.toggle('active',drag.fromBoat);
+ const preview=$('seat-preview');preview.classList.toggle('visible',valid&&!drag.fromBoat);if(valid&&!drag.fromBoat){const x=drag.i?4:-63;preview.innerHTML='<rect x="'+(x-4)+'" y="-48" width="68" height="86" rx="12"/><use href="#'+ids[drag.i]+'" x="'+x+'" y="-44" width="60" height="90"/>';}
+});
+scene.addEventListener('pointerup',async e=>{
+ if(!drag||drag.pointerId!==e.pointerId)return;const d=drag,p=svgPoint(e.clientX,e.clientY),r=d.moved?dragRect(d,p):d.origin,target=dropTarget(d,p,r);suppressClickUntil=performance.now()+400;cancelDrag();
+ if(!d.moved){if(d.fromBoat)await unboard(d.i);else await board(d.i);return;}
+ if(d.fromBoat){if(target==='bank')await unboard(d.i,r);else if(target==='boat')await rejectDrag(d.i,r,d.origin,['仍留在船上','拖回停船这一岸，才会下船。']);else await rejectDrag(d.i,r,d.origin,['请放回原岸','不能直接拖到对岸或水中。']);}
+ else {const err=boardError(d.i);if(target==='boat'&&!err)await board(d.i,r);else await rejectDrag(d.i,r,d.origin,err||['没有放到船上','靠近空座位再松手，角色会自动吸附。']);}
+});
+scene.addEventListener('pointercancel',()=>{suppressClickUntil=performance.now()+400;cancelDrag();});scene.addEventListener('lostpointercapture',()=>{if(drag)cancelDrag();});window.addEventListener('blur',cancelDrag);
+scene.addEventListener('click',e=>{if(performance.now()<suppressClickUntil)return;const n=e.target.closest('[data-entity],[data-aboard]');if(!n)return;if(n.hasAttribute('data-aboard'))unboard(Number(n.dataset.aboard));else board(Number(n.dataset.entity));});
+scene.addEventListener('keydown',e=>{const n=e.target.closest('[data-entity],[data-aboard]');if(n&&(e.key==='Enter'||e.key===' ')){e.preventDefault();e.stopPropagation();if(n.hasAttribute('data-aboard'))unboard(Number(n.dataset.aboard));else board(Number(n.dataset.entity));}});
+document.querySelectorAll('.choice').forEach((b,i)=>b.addEventListener('click',()=>choose(i)));
+$('cross').addEventListener('click',cross);$('boat-cross').addEventListener('click',cross);$('undo').addEventListener('click',undo);$('status-undo').addEventListener('click',undo);
+$('restart').addEventListener('click',()=>{if(!history.length&&!farmerOnBoat&&!selected&&!hintUses){reset();return;}$('restart-dialog').showModal();});$('confirm-restart').addEventListener('click',()=>{$('restart-dialog').close();reset();});$('play-again').addEventListener('click',reset);
+$('rules-button').addEventListener('click',()=>$('rules-dialog').showModal());
+$('speed').addEventListener('click',()=>{if(busy||drag)return;fast=!fast;scene.classList.toggle('fast',fast);$('speed').setAttribute('aria-pressed',String(fast));$('speed').textContent=fast?'动画：快速':'动画：标准';});
+$('hint').addEventListener('click',()=>{if(busy||isOver())return;hintUses++;$('hint-content').textContent='先检查“狼与羊”和“羊与白菜”这两组组合。农夫在哪一岸，就能照看哪一岸。';$('reveal-hint').hidden=false;$('hint-dialog').showModal();});
+$('reveal-hint').addEventListener('click',()=>{if($('reveal-hint').hidden)return;const path=RiverRules.solve(state);if(!path?.length)return;answerUses++;const c=path[0];$('hint-content').innerHTML='<strong>下一步：'+(c?'带'+names[c]:'独自')+'去'+(state[0]?'左岸':'右岸')+'。</strong><br>从当前局面出发，至少还需 '+path.length+' 次过河。';$('reveal-hint').hidden=true;});
+function stopReplay(){clearInterval(replayTimer);replayTimer=0;$('replay-play').textContent='自动播放';}
+function renderReplay(){
+ const s=replayStep?history[replayStep-1].after:history[0].before;
+ $('replay-caption').textContent=replayStep?'第 '+replayStep+' / '+history.length+' 次：农夫'+(history[replayStep-1].cargo?'带'+names[history[replayStep-1].cargo]:'独自')+'前往'+(s[0]?'右岸':'左岸'):'出发前 · 四位伙伴都在左岸';
+ $('replay-map').setAttribute('aria-label',$('replay-caption').textContent+'。左岸：'+names.filter((_,i)=>!s[i]).join('、')+'；右岸：'+names.filter((_,i)=>s[i]).join('、'));
+ $('replay-map').innerHTML='<rect x="173" width="94" height="190" fill="#a8cdbd"/><text x="85" y="24" text-anchor="middle" fill="#58754e" font-size="12">左岸</text><text x="354" y="24" text-anchor="middle" fill="#58754e" font-size="12">右岸</text>'+ids.map((id,i)=>{const x=(s[i]?287:22)+(i%2)*63,y=35+Math.floor(i/2)*78;return '<use href="#'+id+'" x="'+x+'" y="'+y+'" width="47" height="53"/><text x="'+(x+23)+'" y="'+(y+65)+'" text-anchor="middle" fill="#34553b" font-size="11">'+names[i]+'</text>';}).join('');
+ $('replay-slider').max=history.length;$('replay-slider').value=replayStep;$('replay-prev').disabled=replayStep===0;$('replay-next').disabled=replayStep===history.length;
+ if(replayStep===history.length)stopReplay();
+}
+$('replay-result').addEventListener('click',()=>{stopReplay();replayStep=0;renderReplay();$('replay-dialog').showModal();});
+$('replay-prev').addEventListener('click',()=>{stopReplay();replayStep=Math.max(0,replayStep-1);renderReplay();});$('replay-next').addEventListener('click',()=>{stopReplay();replayStep=Math.min(history.length,replayStep+1);renderReplay();});$('replay-slider').addEventListener('input',e=>{stopReplay();replayStep=Math.max(0,Math.min(history.length,Number(e.target.value)));renderReplay();});
+$('replay-play').addEventListener('click',()=>{if(replayTimer){stopReplay();return;}if(replayStep===history.length)replayStep=0;renderReplay();$('replay-play').textContent='暂停回看';replayTimer=setInterval(()=>{replayStep=Math.min(history.length,replayStep+1);renderReplay();},fast?550:1000);});$('replay-dialog').addEventListener('close',stopReplay);
+$('export-route').addEventListener('click',()=>{if(busy||!history.length)return;const lines=['一河之隔 · 我的过河路线','结果：'+(isWon()?'成功通关':isOver()?'本局失败':'尚未完成'),'完成方式：'+(hintUses?'提示辅助':'本局未查看提示'),'过河次数：'+history.length,'查看提示：'+hintUses+' 次；揭示下一步：'+answerUses+' 次；撤回：'+undoUses+' 次',''];history.forEach((h,i)=>lines.push((i+1)+'. 农夫'+(h.cargo?'带'+names[h.cargo]:'独自')+'：'+(h.before[0]?'右岸 → 左岸':'左岸 → 右岸')+(RiverRules.danger(h.after)?'（失败）':'')));lines.push('','不包含已撤回步骤和装卸操作；提示次数不因撤回而减少。');const url=URL.createObjectURL(new Blob(['\ufeff'+lines.join('\r\n')],{type:'text/plain;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='过河路线_'+history.length+'步.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);});
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drag){suppressClickUntil=performance.now()+400;cancelDrag();return;}if(busy||e.ctrlKey||e.metaKey||e.altKey||drag||document.querySelector('dialog[open]')||['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName))return;if(['0','1','2','3'].includes(e.key)){e.preventDefault();choose(Number(e.key));}else if(e.key.toLowerCase()==='f'&&!e.repeat){e.preventDefault();if(farmerOnBoat)unboard(0);else board(0);}else if(e.key==='Enter'&&!e.repeat&&e.target.tagName!=='BUTTON'&&!e.target.closest('[data-entity],[data-aboard]')){e.preventDefault();cross();}});
+$('fullscreen').addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{feedback('当前浏览器不允许网页全屏','可使用浏览器的全屏功能，或继续在当前窗口游玩。');}});document.addEventListener('fullscreenchange',()=>{$('fullscreen').textContent=document.fullscreenElement?'⛶ 退出全屏':'⛶ 全屏';});
+function fitScene(){cancelDrag();scene.setAttribute('viewBox',innerWidth>650&&innerHeight<=850?'0 90 1180 340':'0 0 1180 430');}
+window.addEventListener('resize',fitScene);fitScene();render();
+
+</script>
+</body>
+</html>
