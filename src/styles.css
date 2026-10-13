@@ -20,3 +20,5 @@
 @media(max-width:760px){.site-header .brand{display:grid;grid-template-columns:35px auto;gap:0 8px}.site-header .brand-symbol{grid-row:1/3}.site-header .brand strong{line-height:1.3}.site-header .school{display:block;font-size:10px;letter-spacing:.3px;border:0;padding:0;margin:3px 0 0}}
 
 
+
+.lesson-feature{display:flex;gap:25px;align-items:center;border:1px solid #d4dac8;background:#edf0e4;padding:30px 32px;margin:0 0 40px;color:#435d3d;border-radius:5px;text-decoration:none}.lesson-feature>svg{flex-shrink:0}.lesson-feature>div{flex:1}.lesson-feature span{font-size:11px;letter-spacing:1px}.lesson-feature h3{font-family:var(--serif);font-size:24px;font-weight:500;margin:10px 0}.lesson-feature p{font-size:13px;line-height:1.9;color:#737d68}.lesson-feature>strong{font-size:14px;display:flex;gap:8px;align-items:center;font-weight:500;white-space:nowrap}.lesson-feature:hover{border-color:#8b9c79;background:#e6ecd9}@media(max-width:700px){.lesson-feature{padding:23px;gap:16px;flex-wrap:wrap}.lesson-feature>svg{display:none}.lesson-feature>div{flex-basis:100%}.lesson-feature h3{font-size:21px}}
