@@ -19,3 +19,5 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - The third lesson is a 45-minute self-study workshop on prompt comparisons, HTML/CSS/JavaScript events and state, and AI debugging. Preserve its built-in 3D demo with local dependencies. Publish at public/lessons/prompt-to-interactive-web.html and link from homepage resources.
 
 - Weather API examples use Open-Meteo in two standalone apps: weather-outfit.html and weather-farm.html. The outdoor school farm grows Chinese cabbage, beans, eggplant and lettuce. Distinguish forecast/model data, classroom simulations and field observations. Keep school coordinates configurable; Wuhan is only an example location.
+
+- The weather API self-study workflow is Lesson 4, at public/lessons/weather-api-lab.html. Keep Lesson 3 unchanged. Link Lesson 4 and its two weather applications from homepage resources. Include the user-provided club communication tool https://club.aimuyiworkspace.xyz/ as a homepage resource.
