@@ -17,3 +17,5 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - The second lesson is a self-study workshop: every student builds and tests their own working Windows screenshot tool during class (select a region, capture it, save a PNG). A plan alone is not the deliverable. Retain the website's ivory and forest-green visual style, and publish it at `public/lessons/think-build-screenshot.html` with a homepage learning-resources entry.
 
 - The third lesson is a 45-minute self-study workshop on prompt comparisons, HTML/CSS/JavaScript events and state, and AI debugging. Preserve its built-in 3D demo with local dependencies. Publish at public/lessons/prompt-to-interactive-web.html and link from homepage resources.
+
+- Weather API examples use Open-Meteo in two standalone apps: weather-outfit.html and weather-farm.html. The outdoor school farm grows Chinese cabbage, beans, eggplant and lettuce. Distinguish forecast/model data, classroom simulations and field observations. Keep school coordinates configurable; Wuhan is only an example location.
